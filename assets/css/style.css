@@ -835,11 +835,66 @@ body{
     align-items:center;
     padding:0 10px;
     color:white;
-    font-size:0.9rem;
+    font-size:0.8rem;
     font-weight:500;
     box-shadow:0 3px 10px rgba(0,0,0,0.1);
     cursor:pointer;
     transition:all 0.2s ease;
+}
+
+.task-bar:hover{
+    transform:scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2)
+}
+
+.users-section{
+    grid-area:users;
+}
+
+.users-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.5rem;
+}
+
+.user-card{
+    border-radius:12px;
+    padding:1.5rem;
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+    transition:all 0.3s ease;
+}
+
+.user-avatar-lg{
+    width:60px;
+    height:60px;
+    border-radius:16px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+    font-size:1.5rem;
+    overflow:hidden;
+}
+
+.user-avatar-lg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.user-info h3{
+    font-size:1.1rem;
+    margin-bottom:0.3rem;
+    color:var(--text-color);
+}
+
+.user-info p{
+    color:var(--gray);
+    font-size:0.9rem;
 }
 /* footer area */
 .footer{
@@ -853,3 +908,137 @@ body{
 }
 
 
+/* Responsive Design */
+
+/* Tablet View: Sidebar minimized to icons only */
+
+@media (min-width:769px) and (max-width: 1200px){
+    :root{
+        --sidebar-width: var(--sidebar-minimized-width) 1fr;
+    }
+    .dashboard{
+        grid-template-columns: var(--sidebar-minimized-width) 1fr;
+    }
+    .sidebar{
+        overflow-x:hidden;
+    }
+    .logo{
+        padding: 0 0.5rem 1.5rem;
+        justify-content: center;
+    }
+
+    .logo h1, .nav-title, .nav-item span, .team-member span{
+        display:none;
+    }
+    
+    .nav-links{
+        padding:0;
+    }
+
+    .nav-item{
+        padding:0.9rem 0;
+        justify-content: center;
+        margin-left:0.5rem;
+        margin-right:0.5rem;
+    }
+
+    .nav-item i{
+        margin-right:0;
+    }
+
+    .team-member{
+        justify-content: center;
+        padding:0.5rem 0;
+    }
+
+    .team-member .member-avatar{
+        margin-right:0;
+    }
+
+    .mobile-toggle i{
+        transform:rotate(180deg)
+    }
+}
+
+/* Responsive Design */
+@media (min-width:1200px){
+    .content{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+        "welcome profile"
+        "projects stats"
+        "timeline timeline"
+        "users users";
+    }
+}
+
+@media (max-width:992px){
+    .content{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "welcome"
+        "profile"
+        "projects"
+        "stats" 
+        "timeline"
+         "users";
+    }
+
+    .projects-grid, .stats-grid, .users-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width:768px){
+    .dashboard{
+        grid-template-columns: 1fr;
+        grid-template-rows:auto 1fr auto;
+        grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    }
+
+    .sidebar{
+        position:fixed;
+        left:100%;
+        top:0;
+        height:100vh;
+        width: var(--sidebar-width);
+        z-index:200;
+        transform: Left 0.3s ease;
+    }
+
+    .sidebar.active{
+        Left:0;
+    }
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .mobile-overlay.active{
+        display:block;
+        opacity:1;
+    }
+
+    .search-bar{
+        width:200px;
+    }
+    .header{
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width:576px) {
+    .content{
+        padding: 1.5rem 1rem;
+    }
+    .search-bar{
+        display:none;
+    }
+    .timeline-grid{
+        min-width:500px;
+    }
+}
