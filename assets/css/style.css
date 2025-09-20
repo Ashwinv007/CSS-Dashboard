@@ -1035,6 +1035,9 @@ body{
     .project-time{
         font-size: 0.7rem;
     }
+    .section-title{
+        font-size: x-small;
+    }
 }
 
 @media (max-width:576px) {
