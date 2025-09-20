@@ -1029,9 +1029,9 @@ body{
     .header{
         padding: 1rem;
     }
-    /* .project-title h3{
+    .project-title h3{
         font-size: 0.8rem;
-    } */
+    }
     .project-time{
         font-size: 0.7rem;
     }
