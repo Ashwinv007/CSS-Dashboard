@@ -1029,6 +1029,9 @@ body{
     .header{
         padding: 1rem;
     }
+    .project-title h3{
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width:576px) {
@@ -1041,4 +1044,5 @@ body{
     .timeline-grid{
         min-width:500px;
     }
+    
 }
